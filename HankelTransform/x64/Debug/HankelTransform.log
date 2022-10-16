@@ -1,0 +1,6 @@
+﻿  HankelTransform.cpp
+C:\Users\well1\source\repos\Hankel-transform\HankelTransform\HankelTransform.cpp(191,12): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\well1\source\repos\Hankel-transform\HankelTransform\HankelTransform.cpp(163,26): warning C4101: e: неиспользованная локальная переменная
+C:\Users\well1\source\repos\Hankel-transform\HankelTransform\HankelTransform.cpp(183,26): warning C4101: e: неиспользованная локальная переменная
+C:\Users\well1\source\repos\Hankel-transform\HankelTransform\HankelTransform.cpp(212,26): warning C4101: e: неиспользованная локальная переменная
+  HankelTransform.vcxproj -> C:\Users\well1\source\repos\Hankel-transform\HankelTransform\x64\Debug\HankelTransform.exe
