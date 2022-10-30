@@ -6,6 +6,8 @@
 #include <cstring>
 #include <stdexcept>
 #include <math.h>
+#include "mkl.h"
+#include "mkl_df_types.h"
 
 struct Expression {
 	Expression(std::string token) : token(token) {}
@@ -188,7 +190,7 @@ int main() {
 	}
 
 	//Получение массива значений функции f
-	int count = N / delta + 1;
+	const int count = N / delta + 1;
 	double* nodes = new double[count];
 	double* sum_f = new double[count];
 	for (int i = 0; i < count; i++)
@@ -223,11 +225,38 @@ int main() {
 		auto result = eval(p.parse());
 		sum_f[i] = result;
 	}
-	for (int i = 0; i < count; i++)
+	for (int i = count - 1; i >= 0; i--)
 	{
-		std::cout << sum_f[i] << "\n";
+		//std::cout << nodes[i] << ": " << sum_f[i] << "\n";
 	}
 
+	int ngrid[] = { count };
+	const int howmany = 1;
+	const size_t distanse = 11;
+	_MKL_Complex16 in[howmany * distanse];
+	_MKL_Complex16 out[howmany * distanse];
+
+	for (int i = 0; i < 11; i++)
+	{
+		in[i].real = sum_f[i];
+		in[i].imag = 0;
+	}
+
+	DFTI_DESCRIPTOR_HANDLE mkl_plan;
+
+	MKL_LONG status = DftiCreateDescriptor(&mkl_plan, DFTI_DOUBLE, DFTI_COMPLEX, 1, ngrid);
+	status = DftiSetValue(mkl_plan, DFTI_NUMBER_OF_TRANSFORMS, howmany);
+	status = DftiSetValue(mkl_plan, DFTI_INPUT_DISTANCE, distanse);
+	DftiCommitDescriptor(mkl_plan);
+
+	DftiComputeForward(mkl_plan, in, out);
+
+	for (int i = 0; i < count; i++)
+	{
+		std::cout << nodes[i] << ": " << in[i].real << "; " << out[i].real << "\n";
+	}
+
+	DftiFreeDescriptor(&mkl_plan);
 	//std::string s;
 	//std::cin >> s;
 	//s = StringReplacer(s, "x", "1");
