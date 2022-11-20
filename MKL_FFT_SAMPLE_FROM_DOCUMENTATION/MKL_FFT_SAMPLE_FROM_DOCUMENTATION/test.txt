@@ -1,0 +1,5 @@
+beta = 0.01
+epsF = 0.001 Period = 690.776
+epsFFT = 0.001 FNykuist = 0.711761 deltax = 0.702483
+ _N = 1966
+arg		funct		IFFT		FFT_mkl		FFT_exact		Diff
