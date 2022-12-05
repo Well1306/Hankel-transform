@@ -3,13 +3,11 @@ DftiSetValue: Intel MKL DFTI SUCCESS: No error	 0
 DftiSetValue: Intel MKL DFTI SUCCESS: No error	 0
 DftiCommitDescriptor: Intel MKL DFTI SUCCESS: No error	 0
 DftiComputeForward: Intel MKL DFTI SUCCESS: No error	 0
-DftiComputeBackward: Intel MKL DFTI SUCCESS: No error	 0
 DftiCreateDescriptor: Intel MKL DFTI SUCCESS: No error	 0
 DftiSetValue: Intel MKL DFTI SUCCESS: No error	 0
 DftiSetValue: Intel MKL DFTI SUCCESS: No error	 0
 DftiCommitDescriptor: Intel MKL DFTI SUCCESS: No error	 0
 DftiComputeForward: Intel MKL DFTI SUCCESS: No error	 0
-DftiComputeBackward: Intel MKL DFTI SUCCESS: No error	 0
 DftiCreateDescriptor: Intel MKL DFTI SUCCESS: No error	 0
 DftiSetValue: Intel MKL DFTI SUCCESS: No error	 0
 DftiSetValue: Intel MKL DFTI SUCCESS: No error	 0
